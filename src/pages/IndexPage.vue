@@ -6,20 +6,22 @@
       @reset="onReset"
       class="q-gutter-md"
     >
+
     <!-- id -->
     <q-input
         filled
         v-model="id"
-        label="Your id"
+        label="Your id*"
         hint="id"
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Please type your id code']"
       />
+
     <!-- name -->
       <q-input
         filled
         v-model="name"
-        label="Your name"
+        label="Your name*"
         hint="Name"
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Please type your name']"
@@ -29,7 +31,7 @@
       <q-input
         filled
         v-model="surname"
-        label="Your surname"
+        label="Your surname*"
         hint="surname"
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Please type your surname']"
@@ -39,7 +41,7 @@
         filled
         type="number"
         v-model="age"
-        label="Your age *"
+        label="Your age*"
         lazy-rules
         :rules="[
           val => val !== null && val !== '' || 'Please type your age',
@@ -98,6 +100,8 @@ export default {
       },
 
       onReset () {
+        id.value = null
+        surname.value = null
         name.value = null
         age.value = null
         accept.value = false
